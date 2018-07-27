@@ -1,0 +1,11 @@
+{
+  "name": "fire",
+  "version": "0.0.0",
+  "description": "Getting started with Gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yangguowei <bujing18@gmail.com>",
+  "license": "ISC"
+}
