@@ -6,6 +6,7 @@ let clean = require('gulp-clean')
 let sass = require('gulp-sass')
 let sourcemaps = require('gulp-sourcemaps')
 let autoprefixer = require('gulp-autoprefixer')
+let babel = require('gulp-babel')
 let concat = require('gulp-concat')
 let uglify = require('gulp-uglify')
 
@@ -25,6 +26,12 @@ gulp.task('clean', () => {
 
 gulp.task('html', () => {
   return gulp.src('src/**/*.html')
+    .pipe(gulp.dest('dist'))
+    .pipe(connect.reload())
+})
+
+gulp.task('static', () => {
+  return gulp.src('src/static/**/*.*')
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload())
 })
@@ -51,6 +58,9 @@ gulp.task('css', () => {
 gulp.task('js', () => {
   return gulp.src('src/js/**/*.js')
     .pipe(sourcemaps.init())
+    .pipe(babel({
+      presets: ['env']
+    }))
     .pipe(concat('index.js'))
     .pipe(uglify().on('error', e => {
       console.log(e)
@@ -62,11 +72,12 @@ gulp.task('js', () => {
 
 gulp.task('watch', () => {
   gulp.watch(['src/**/*.html'], ['html'])
+  gulp.watch(['src/static/**/*.*'], ['static'])
   gulp.watch(['src/images/**/*.*'], ['images'])
   gulp.watch(['src/css/**/*.scss'], ['css'])
   gulp.watch(['src/js/**/*.js'], ['js'])
 })
 
 gulp.task('default', ['clean'], () => {
-  gulp.start('html', 'images', 'css', 'js', 'connect', 'watch')
+  gulp.start('html', 'static', 'images', 'css', 'js', 'connect', 'watch')
 })

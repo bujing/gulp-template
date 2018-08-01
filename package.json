@@ -1,16 +1,28 @@
 {
   "name": "fire",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Getting started with Gulp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bujing/fire.git"
+  },
   "author": "yangguowei <bujing18@gmail.com>",
   "license": "ISC",
-  "dependencies": {
+  "bugs": {
+    "url": "https://github.com/bujing/fire/issues"
+  },
+  "homepage": "https://github.com/bujing/fire#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.5.0",
