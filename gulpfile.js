@@ -58,9 +58,7 @@ gulp.task('css', () => {
 gulp.task('js', () => {
   return gulp.src('src/js/**/*.js')
     .pipe(sourcemaps.init())
-    .pipe(babel({
-      presets: ['env']
-    }))
+    .pipe(babel())
     .pipe(concat('index.js'))
     .pipe(uglify().on('error', e => {
       console.log(e)
