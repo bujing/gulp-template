@@ -1,6 +1,6 @@
 {
   "name": "fire",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Getting started with Gulp",
   "main": "index.js",
   "scripts": {
@@ -17,17 +17,24 @@
   },
   "homepage": "https://github.com/bujing/fire#readme",
   "devDependencies": {
+    "autoprefixer": "^9.1.3",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "cssnano": "^4.1.0",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
-    "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.5.0",
+    "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

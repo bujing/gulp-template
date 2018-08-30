@@ -2,10 +2,12 @@
 
 let gulp = require('gulp')
 let connect = require('gulp-connect')
-let clean = require('gulp-clean')
+let del = require('del')
 let sass = require('gulp-sass')
 let sourcemaps = require('gulp-sourcemaps')
-let autoprefixer = require('gulp-autoprefixer')
+let postcss = require('gulp-postcss')
+let autoprefixer = require('autoprefixer')
+let cssnano = require('cssnano')
 let babel = require('gulp-babel')
 let concat = require('gulp-concat')
 let uglify = require('gulp-uglify')
@@ -20,8 +22,7 @@ gulp.task('connect', () => {
 })
 
 gulp.task('clean', () => {
-  return gulp.src('dist')
-    .pipe(clean())
+  return del(['dist'])
 })
 
 gulp.task('html', () => {
@@ -45,11 +46,11 @@ gulp.task('images', () => {
 gulp.task('css', () => {
   return gulp.src('src/css/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([
+      cssnano,
+      autoprefixer
+    ]))
     .pipe(sourcemaps.write('/maps'))
     .pipe(gulp.dest('dist/css'))
     .pipe(connect.reload())
