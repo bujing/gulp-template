@@ -2,6 +2,10 @@
 
 Getting started with Gulp
 
+```
+npm i gulp-cli -g
+```
+
 ## 插件
 
 **[gulp-connect](https://github.com/avevlad/gulp-connect)**

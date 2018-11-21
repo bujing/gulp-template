@@ -1,7 +1,7 @@
 'use strict'
 
 let gulp = require('gulp')
-let connect = require('gulp-connect')
+let connection = require('gulp-connect')
 let del = require('del')
 let sass = require('gulp-sass')
 let sourcemaps = require('gulp-sourcemaps')
@@ -12,38 +12,39 @@ let babel = require('gulp-babel')
 let concat = require('gulp-concat')
 let uglify = require('gulp-uglify')
 
-gulp.task('connect', () => {
-  connect.server({
+function connect(done) {
+  connection.server({
     host: '0.0.0.0',
     livereload: true,
     port: 2010,
     root: 'dist'
   })
-})
+  done()
+}
 
-gulp.task('clean', () => {
+function clean() {
   return del(['dist'])
-})
+}
 
-gulp.task('html', () => {
+function html() {
   return gulp.src('src/**/*.html')
     .pipe(gulp.dest('dist'))
-    .pipe(connect.reload())
-})
+    .pipe(connection.reload())
+}
 
-gulp.task('static', () => {
+function other() {
   return gulp.src('src/static/**/*.*')
     .pipe(gulp.dest('dist'))
-    .pipe(connect.reload())
-})
+    .pipe(connection.reload())
+}
 
-gulp.task('images', () => {
+function images() {
   return gulp.src('src/images/**/*.*')
     .pipe(gulp.dest('dist/images'))
-    .pipe(connect.reload())
-})
+    .pipe(connection.reload())
+}
 
-gulp.task('css', () => {
+function css() {
   return gulp.src('src/css/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -53,10 +54,10 @@ gulp.task('css', () => {
     ]))
     .pipe(sourcemaps.write('/maps'))
     .pipe(gulp.dest('dist/css'))
-    .pipe(connect.reload())
-})
+    .pipe(connection.reload())
+}
 
-gulp.task('js', () => {
+function js() {
   return gulp.src('src/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel())
@@ -66,17 +67,16 @@ gulp.task('js', () => {
     }))
     .pipe(sourcemaps.write('/maps'))
     .pipe(gulp.dest('dist/js'))
-    .pipe(connect.reload())
-})
+    .pipe(connection.reload())
+}
 
-gulp.task('watch', () => {
-  gulp.watch(['src/**/*.html'], ['html'])
-  gulp.watch(['src/static/**/*.*'], ['static'])
-  gulp.watch(['src/images/**/*.*'], ['images'])
-  gulp.watch(['src/css/**/*.scss'], ['css'])
-  gulp.watch(['src/js/**/*.js'], ['js'])
-})
+function watch(done) {
+  gulp.watch(['src/**/*.html'], html)
+  gulp.watch(['src/static/**/*.*'], other)
+  gulp.watch(['src/images/**/*.*'], images)
+  gulp.watch(['src/css/**/*.scss'], css)
+  gulp.watch(['src/js/**/*.js'], js)
+  done()
+}
 
-gulp.task('default', ['clean'], () => {
-  gulp.start('html', 'static', 'images', 'css', 'js', 'connect', 'watch')
-})
+exports.default = gulp.series(clean, gulp.parallel(html, other, images, css, js, connect, watch))
