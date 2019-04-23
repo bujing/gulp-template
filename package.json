@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bujing/fire.git"
+    "url": "git+https://github.com/bujing/gulp.git"
   },
   "author": "yangguowei <bujing18@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bujing/fire/issues"
+    "url": "https://github.com/bujing/gulp/issues"
   },
-  "homepage": "https://github.com/bujing/fire#readme",
+  "homepage": "https://github.com/bujing/gulp#readme",
   "devDependencies": {
     "autoprefixer": "^9.1.3",
     "babel-core": "^6.26.3",
