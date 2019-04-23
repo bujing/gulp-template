@@ -1,4 +1,4 @@
-# fire
+# GULP
 
 Getting started with Gulp
 
