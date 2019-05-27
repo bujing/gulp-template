@@ -48,10 +48,7 @@ function css () {
   return gulp.src('src/css/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(postcss([
-      cssnano,
-      autoprefixer
-    ]))
+    .pipe(postcss())
     .pipe(sourcemaps.write('/maps'))
     .pipe(gulp.dest('dist/css'))
     .pipe(connection.reload())

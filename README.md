@@ -69,5 +69,4 @@ PostCSS - 使用 JavaScript 实现 CSS 转换的工具
 
 用于编写下一代 JavaScript 的编译器
 
-`babel` 默认只转换新的语法，新的 API 由 `babel-polyfill` 负责实现。
-
+`babel` 默认只转换新的语法，全局对象的静态方法由 `babel-polyfill` 实现。

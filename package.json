@@ -1,6 +1,6 @@
 {
-  "name": "gulp",
-  "version": "0.2.0",
+  "name": "gulpConfig",
+  "version": "0.3.0",
   "description": "Getting started with Gulp",
   "main": "index.js",
   "scripts": {
@@ -17,20 +17,20 @@
   },
   "homepage": "https://github.com/bujing/gulp#readme",
   "devDependencies": {
-    "autoprefixer": "^9.1.3",
-    "babel-core": "^6.26.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "cssnano": "^4.1.0",
+    "@babel/core": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "autoprefixer": "^9.5.1",
+    "cssnano": "^4.1.10",
     "del": "^3.0.0",
-    "gulp": "^4.0.0",
-    "gulp-babel": "^7.0.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-connect": "^5.5.0",
+    "gulp-connect": "^5.7.0",
     "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1"
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
   },
   "browserslist": [
     "> 1%",
