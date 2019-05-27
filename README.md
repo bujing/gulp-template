@@ -1,6 +1,15 @@
 # GULP
 
-Getting started with Gulp
+这是一个 Gulp 构建配置示例。
+
+我一般用来处理简单的静态页面需求，主要针对脚本和样式做处理，图片未做特殊处理。
+
+* 支持 ES6
+* 合并压缩 JS 文件
+* 支持 Sass/Scss
+* 支持 CSS 添加前缀和压缩优化
+* 生成 Source Maps
+* 开启调试服务器
 
 ```
 npm i gulp-cli -g
@@ -60,5 +69,5 @@ PostCSS - 使用 JavaScript 实现 CSS 转换的工具
 
 用于编写下一代 JavaScript 的编译器
 
-`babel` 默认只转换新的语法，新的 API 由 `babel-polyfill` 负责实现。[容后细说](https://babeljs.io/)。
+`babel` 默认只转换新的语法，新的 API 由 `babel-polyfill` 负责实现。
 

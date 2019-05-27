@@ -1,2 +1,11 @@
 @import 'reboot';
-@import 'layout';
+
+$primary: #f60;
+
+dt {
+  color: $primary;
+}
+
+dd {
+  margin-left: 2em;
+}

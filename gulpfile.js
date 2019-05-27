@@ -12,7 +12,7 @@ let babel = require('gulp-babel')
 let concat = require('gulp-concat')
 let uglify = require('gulp-uglify')
 
-function connect(done) {
+function connect (done) {
   connection.server({
     host: '0.0.0.0',
     livereload: true,
@@ -22,29 +22,29 @@ function connect(done) {
   done()
 }
 
-function clean() {
+function clean () {
   return del(['dist'])
 }
 
-function html() {
+function html () {
   return gulp.src('src/**/*.html')
     .pipe(gulp.dest('dist'))
     .pipe(connection.reload())
 }
 
-function other() {
+function other () {
   return gulp.src('src/static/**/*.*')
     .pipe(gulp.dest('dist'))
     .pipe(connection.reload())
 }
 
-function images() {
+function images () {
   return gulp.src('src/images/**/*.*')
     .pipe(gulp.dest('dist/images'))
     .pipe(connection.reload())
 }
 
-function css() {
+function css () {
   return gulp.src('src/css/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -57,7 +57,7 @@ function css() {
     .pipe(connection.reload())
 }
 
-function js() {
+function js () {
   return gulp.src('src/js/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel())
@@ -70,7 +70,7 @@ function js() {
     .pipe(connection.reload())
 }
 
-function watch(done) {
+function watch (done) {
   gulp.watch(['src/**/*.html'], html)
   gulp.watch(['src/static/**/*.*'], other)
   gulp.watch(['src/images/**/*.*'], images)
