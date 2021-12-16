@@ -1,72 +1,37 @@
-# GULP
+# Gulp Template
 
-这是一个 Gulp 构建配置示例。
+## gulp 相关
 
-我一般用来处理简单的静态页面需求，主要针对脚本和样式做处理，图片未做特殊处理。
+- [gulp-cli](https://github.com/gulpjs/gulp-cli) 提供在命令行执行 `gulp` 命令的能力，需要执行命令 `npm i gulp-cli -g` 全局安装
+- [gulp](https://github.com/gulpjs/gulp)
 
-* 支持 ES6
-* 合并压缩 JS 文件
-* 支持 Sass/Scss
-* 支持 CSS 添加前缀和压缩优化
-* 生成 Source Maps
-* 开启调试服务器
+## babel 相关
 
-```
-npm i gulp-cli -g
-```
+- [gulp-babel](https://github.com/babel/gulp-babel)
+- [@babel/core](https://babeljs.io/docs/en/babel-core) `js` 语法编译器
+- [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) 尽情使用最新的 `js` 语法编码
 
-## 插件
+## ejs 相关
 
-**[gulp-connect](https://github.com/avevlad/gulp-connect)**
+- [gulp-ejs](https://github.com/rogeriopvl/gulp-ejs) 支持使用 `ejs` 模板
 
-开启本地服务器（支持自动刷新）
+## sass 相关
 
-虽然 `Node.js` 和 `Nginx` 都能很容易得开启本地服务器，但是如果 `Gulp` 也有插件能够做到，就没必要舍近求远了，何况 `gulp-connect` 还支持自动刷新。
+- [gulp-sass](https://github.com/dlmanning/gulp-sass)
+- [sass](https://github.com/sass/dart-sass)
 
-**[del](https://github.com/sindresorhus/del)**
+## postcss 相关
 
-清除文件或目录
+- [gulp-postcss](https://github.com/postcss/gulp-postcss)
+- [postcss](https://github.com/postcss/postcss) 利用 `js` 转换 `css`
+- [postcss-preset-env](https://github.com/csstools/postcss-preset-env) 尽情使用最新的 `css` 语法编码
+- [cssnano](https://github.com/cssnano/cssnano) 压缩 `css`
 
-返回 `Promise` 对象，支持多文件操作和通配符匹配。
+## 其他
 
-**[gulp-sass](https://github.com/dlmanning/gulp-sass)**
-
-编译 Sass/Scss
-
-以 `_` 开头命名文件，则编译时不会将此文件独立输出，在其他文件中 `@import` 此文件时，也可省略开头的 `_`。
-
-**[gulp-postcss](https://github.com/postcss/gulp-postcss)**
-
-PostCSS - 使用 JavaScript 实现 CSS 转换的工具
-
-`PostCSS` 提供了很多插件，使开发者能更高效、更便利的应用 `CSS`。
-
-**cssnano**
-
-优化压缩
-
-**autoprefixer**
-
-配置好需要兼容的浏览器版本（在 `package.json` 中的 `browserslist` 字段配置），`autoprefixer` 会自动处理 `CSS` 以兼容指定的浏览器，可能是简单的添加前缀，也可能是添加一条或多条声明，而我们只需要编写标准声明。
-
-**[gulp-uglify](https://github.com/terinjokes/gulp-uglify)**
-
-压缩 JavaScript 文件
-
-**[gulp-concat](https://github.com/gulp-community/gulp-concat)**
-
-合并文件
-
-得益于 `Sass` 的 `@import` 规则，我们处理 `CSS` 时并不需要使用此插件。
-
-**[gulp-sourcemaps](https://github.com/gulp-sourcemaps/gulp-sourcemaps)**
-
-源码映射
-
-与 `gulp-concat` 配合使用时，如有多文件合并输出，若源文件中有与输出文件同名者（例如同为：index.js），则此源文件必须是首文件（文件名排序在首位或在编译时首个引入）。
-
-**[gulp-babel](https://github.com/babel/gulp-babel)**
-
-用于编写下一代 JavaScript 的编译器
-
-`babel` 默认只转换新的语法，全局对象的静态方法由 `babel-polyfill` 实现。
+- [gulp-connect](https://github.com/avevlad/gulp-connect) 启动一个支持自动刷新的静态服务器
+- [del](https://github.com/sindresorhus/del) 删除文件或目录
+- [gulp-uglify](https://github.com/terinjokes/gulp-uglify) 压缩 `js`
+- [gulp-concat](https://github.com/gulp-community/gulp-concat) 合并文件
+- [gulp-sourcemaps](https://github.com/gulp-sourcemaps/gulp-sourcemaps) 生成源代码映射文件
+- [gulp-rename](https://github.com/hparra/gulp-rename) 文件重命名

@@ -2,25 +2,41 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Gulp</title>
+  <title>Gulp Template</title>
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+  <details>
+    <summary>@babel/preset-env 支持新的语法</summary>
+    <pre><code>
+      // javascript
+      const [a, b] = [1, 2, 3];
+      console.log(a, b);
 
-  <h1>这是一个 Gulp 构建配置示例</h1>
+      // transform
+      var o = [1, 2, 3];
+      console.log(o[0], o[1]);
+    </code></pre>
+  </details>
 
-  <dl>
-    <dt>主要做了以下事情：</dt>
-    <dd>1. 支持 ES6</dd>
-    <dd>2. 合并压缩 JS 文件</dd>
-    <dd>3. 支持 Sass/Scss</dd>
-    <dd>4. 支持 CSS 添加前缀和压缩优化</dd>
-    <dd>5. 生成 Source Maps</dd>
-    <dd>6. 开启调试服务器</dd>
-  </dl>
+  <details>
+    <summary>不支持新的静态/实例属性或方法，需要 @babel/polyfill</summary>
+    <pre><code>
+      // javascript
+      const isInt = Number.isInteger(3);
+      console.log(isInt);
 
-  <script src="js/polyfill.js"></script>
+      const isEgg = 'eggplant'.includes('egg');
+      console.log(isEgg);
+
+      // transform
+      var isInt = Number.isInteger(3);
+      console.log(isInt);
+
+      var isEgg = 'eggplant'.includes('egg');
+      console.log(isEgg);
+    </code></pre>
+  </details>
   <script src="js/index.js"></script>
-
 </body>
 </html>

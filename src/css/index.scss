@@ -1,11 +1,25 @@
-@import 'reboot';
+@import 'poplar-css/dist/poplar';
 
-$primary: #f60;
-
-dt {
-  color: $primary;
+.container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 60px 1fr 48px;
+  height: 100vh;
 }
 
-dd {
-  margin-left: 2em;
+.header,
+.footer {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.header {
+  border-bottom: 1px solid #ddd;
+}
+.footer {
+  border-top: 1px solid #ddd;
+}
+
+.aside {
+  border-right: 1px solid #ddd;
 }
